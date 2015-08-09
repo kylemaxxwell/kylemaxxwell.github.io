@@ -994,7 +994,6 @@ $bar
 <table>
 <thead>
 <tr>
-<th style="text-align:center">NAME</th>
 <th>DATE</th>
 <th><strong>TIME</strong>: <code>POSIXct</code></th>
 <th><strong>TIME</strong>: <code>POSIXlt</code></th>
@@ -1003,14 +1002,12 @@ $bar
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><strong>Code</strong></td>
 <td><code>s&lt;-Sys.Date()</code><br><code>unclass(s) #since 1970-01-01</code><br><code>x &lt;- as.Date(&quot;1970-01-01&quot;)</code><br><code>unclass(x) ## [1] 0</code><br><code>unclass(as.Date(&quot;1970-01-02&quot;))</code><br><code>## [1] 1</code></td>
 <td><code>x &lt;- Sys.time() ## ‘POSIXct’ format</code><br><code>x  ## [1] &quot;2013-01-24 22:04:14 EST&quot;</code><br><code>unclass(x) ## [1] 1359083054</code><br><code>x$sec ## Error: ...atomic vectors</code><br><code>p &lt;- as.POSIXlt(x)</code><br><code>p$sec ## [1] 14.37</code></td>
 <td><code>x &lt;- Sys.time()</code><br><code>x ## [1] &quot;2013-01-24 22:04:14 EST&quot;</code><br><code>p &lt;- as.POSIXlt(x)</code><br><code>names(unclass(p))## [1] &quot;sec&quot;...</code><br><code>p$sec ## [1] 14.34</code></td>
 <td><code>x &lt;- c(&quot;1jan1960&quot;, &quot;2jan1960&quot;,</code><br><code>&quot;31mar1960&quot;, &quot;30jul1960&quot;)</code><br><code>z &lt;- strptime(x, &quot;%d%b%Y&quot;)</code><br><code>## Sys.setlocale(&quot;LC_TIME&quot;, lct)</code><br><code>strptime(&quot;20/2/06 11:16:16.683&quot;,</code><br><code>&quot;%d/%m/%y %H:%M:%OS&quot;)</code></td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>Explain</strong></td>
 <td>representing calendar dates</td>
 <td><code>Sys.time()</code> returns an object of class POSIXct<BR>a very large integer under the hood<br>store in something like <em>data frame</em></td>
 <td>a list underneath<br>store a bunch of other useful information like:<br>- <em>day of the week</em><br>- <em>day of the year, month</em><br>- <em>day of the month</em></td>
