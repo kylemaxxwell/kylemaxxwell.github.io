@@ -878,7 +878,7 @@ attr(,<span class="pl-s"><span class="pl-pds">"</span>levels<span class="pl-pds"
 <code>nrow()</code><br><code>ncol()</code><br><code>dim()</code><br><code>colnames()</code><br><code>rownames()</code><br><code>cbind()</code><br><code>rbind()</code><br><code>attributes()</code><br><br>matrix:<br><code>dimnames()</code>
 </td>
 <td>
-<code>&gt; m &lt;- matrix(nrow=2,ncol=3)</code><br><code>&gt; dim(m)</code><br><code>&gt; attributes(m)</code><br><code>&gt; matrix(1:6, nrow = 3)</code>
+<code>&gt; m &lt;- matrix(nrow=2,ncol=3)</code><br><code>&gt; dim(m)</code><br><code>&gt; attributes(m)</code><br><code># fill the rows first</code><br><code>&gt; matrix(1:6,ncol=3,byrow=TRUE)</code>
 </td>
 </tr>
 <tr>
@@ -1597,6 +1597,8 @@ rnorm(<span class="pl-smi">n</span>, <span class="pl-v">mean</span> <span class=
 <span class="pl-k">&gt;</span> sample(<span class="pl-c1">1</span><span class="pl-k">:</span><span class="pl-c1">10</span>)       <span class="pl-c">## permutation  # [1] 4 710 6 9 2 8 3 1 5 </span>
 <span class="pl-k">&gt;</span> sample(<span class="pl-c1">1</span><span class="pl-k">:</span><span class="pl-c1">10</span>)       <span class="pl-c">#[1]  2  3  4  1  9  5 10  8  6  7</span>
 <span class="pl-k">&gt;</span> sample(<span class="pl-c1">1</span><span class="pl-k">:</span><span class="pl-c1">10</span>, <span class="pl-v">replace</span> <span class="pl-k">=</span> <span class="pl-c1">TRUE</span>)       <span class="pl-c">## Sample w/replacement [1] 2 9 7 8 2 8 5 9 7 8</span></pre></div>
+
+
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
