@@ -841,6 +841,19 @@ search()
 ls(<span class="pl-s"><span class="pl-pds">"</span>package:ggplot2<span class="pl-pds">"</span></span>)
 library(<span class="pl-v">help</span><span class="pl-k">=</span><span class="pl-smi">ggplot2</span>)</pre></div>
 
+<ul>
+<li>Unload R Package from the search() path of available R objects</li>
+</ul>
+
+<div class="highlight highlight-r"><pre>detach(<span class="pl-s"><span class="pl-pds">"</span>package:ggplot2<span class="pl-pds">"</span></span>)</pre></div>
+
+<ul>
+<li>Remove R objects</li>
+</ul>
+
+<div class="highlight highlight-r"><pre>remove(<span class="pl-v">list</span><span class="pl-k">=</span>ls()) <span class="pl-c">## remove all objects</span>
+remove(<span class="pl-v">list</span><span class="pl-k">=</span>ls()[<span class="pl-k">!</span>(ls() <span class="pl-k">%in%</span> c(<span class="pl-s"><span class="pl-pds">"</span>NEI<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>SCC<span class="pl-pds">"</span></span>))]) <span class="pl-c">## remove all objects without NEI and SCC</span></pre></div>
+
 <h3>Rtools</h3>
 
 <ul>
