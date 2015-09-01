@@ -472,6 +472,78 @@ vertical-align:1px;
 
 <p>Version 1.0</p>
 
+<ol>
+<li><a href="#workspace-and-files">Workspace and Files</a></li>
+<li><a href="#looking-at-data">Looking at Data</a></li>
+<li>
+<a href="#objects">Objects</a>
+
+<ul>
+<li><a href="#mixing-objects--explicit-coercion">Mixing Objects &amp; Explicit Coercion</a></li>
+</ul>
+</li>
+<li><a href="#numbers">Numbers</a></li>
+<li><a href="#attributes">Attributes</a></li>
+<li><a href="#entering%20input--evaluation--printing--creating-vectors">Entering Input &amp; Evaluation &amp; Printing &amp; Creating Vectors</a></li>
+<li><a href="#factors">Factors</a></li>
+<li><a href="#vector-vs-lists-vs-matrices-vs-table-vs-data-frames">Vector vs Lists vs Matrices vs Table vs Data Frames</a></li>
+<li>
+<a href="#missing-values--removing-na">Missing Values &amp; Removing NA</a>
+
+<ul>
+<li><a href="#missing-values">Missing values</a></li>
+<li><a href="#removing-na-values">Removing NA Values</a></li>
+</ul>
+</li>
+<li>
+<a href="#subseting">Subseting</a>
+
+<ul>
+<li><a href="#subseting-vector-and-list">Subseting vector and list</a></li>
+<li><a href="#subseting-matrix-and-table-and-data-frame">Subseting matrix and table and data frame</a></li>
+</ul>
+</li>
+<li>
+<a href="#reading-and-writing-data">Reading and Writing Data</a>
+
+<ul>
+<li><a href="#reading">Reading</a></li>
+<li><a href="#writing">Writing</a></li>
+<li><a href="#interfaces-to-the-outside-world">Interfaces to the Outside World</a></li>
+</ul>
+</li>
+<li><a href="#control-structures">Control Structures</a></li>
+<li><a href="#dates--time">Dates &amp; Time</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#scoping-rules">Scoping Rules</a></li>
+<li>
+<a href="#loop-functions">Loop Functions</a>
+
+<ul>
+<li><a href="#split">split</a></li>
+</ul>
+</li>
+<li><a href="#debugging">Debugging</a></li>
+<li>
+<a href="#profiling">Profiling</a>
+
+<ul>
+<li><a href="#using-systemtime">Using system.time()</a></li>
+<li><a href="#the-r-profiler">The R Profiler</a></li>
+</ul>
+</li>
+<li>
+<a href="#simulation">Simulation</a>
+
+<ul>
+<li><a href="#generating-random-numbers">Generating Random Numbers</a></li>
+<li><a href="#generating-random-numbers-from-a-linear-model">Generating Random Numbers From a Linear Model</a></li>
+<li><a href="#generating-random-numbers-from-a-generalized-linear-model">Generating Random Numbers From a Generalized Linear Model</a></li>
+<li><a href="#random-sampling">Random Sampling</a></li>
+</ul>
+</li>
+</ol>
+
 <hr>
 
 <h2>Workspace and Files</h2>
@@ -842,14 +914,33 @@ vertical-align:1px;
 <span class="pl-k">&gt;</span> unclass(<span class="pl-smi">x</span>)
 [<span class="pl-c1">1</span>] <span class="pl-c1">2</span> <span class="pl-c1">2</span> <span class="pl-c1">1</span> <span class="pl-c1">2</span> <span class="pl-c1">1</span>
 attr(,<span class="pl-s"><span class="pl-pds">"</span>levels<span class="pl-pds">"</span></span>)
-[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>no<span class="pl-pds">"</span></span>  <span class="pl-s"><span class="pl-pds">"</span>yes<span class="pl-pds">"</span></span></pre></div>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>no<span class="pl-pds">"</span></span>  <span class="pl-s"><span class="pl-pds">"</span>yes<span class="pl-pds">"</span></span>
+<span class="pl-k">&gt;</span> levels(<span class="pl-smi">x</span>)<span class="pl-k">&lt;-</span>c(<span class="pl-s"><span class="pl-pds">"</span>yes<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>no<span class="pl-pds">"</span></span>)
+<span class="pl-k">&gt;</span> <span class="pl-smi">x</span>
+[<span class="pl-c1">1</span>] <span class="pl-smi">no</span>  <span class="pl-smi">no</span>  <span class="pl-smi">yes</span> <span class="pl-smi">no</span>  <span class="pl-smi">yes</span>
+<span class="pl-smi">Levels</span><span class="pl-k">:</span> <span class="pl-smi">yes</span> <span class="pl-smi">no</span></pre></div>
 
 <p>The order of the levels can be set using the <code>levels</code> argument to <code>factor()</code>. This can be important in linear modelling because the first level is used as the baseline level.  </p>
 
 <div class="highlight highlight-r"><pre><span class="pl-k">&gt;</span> <span class="pl-smi">x</span> <span class="pl-k">&lt;-</span> <span class="pl-k">factor</span>(c(<span class="pl-s"><span class="pl-pds">"</span>yes<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>yes<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>no<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>yes<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>no<span class="pl-pds">"</span></span>), <span class="pl-v">levels</span> <span class="pl-k">=</span> c(<span class="pl-s"><span class="pl-pds">"</span>yes<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>no<span class="pl-pds">"</span></span>))
 <span class="pl-k">&gt;</span> <span class="pl-smi">x</span>
 [<span class="pl-c1">1</span>] <span class="pl-smi">yes</span> <span class="pl-smi">yes</span> <span class="pl-smi">no</span> <span class="pl-smi">yes</span> <span class="pl-smi">no</span> 
-<span class="pl-smi">Levels</span><span class="pl-k">:</span> <span class="pl-smi">yes</span> <span class="pl-smi">no</span></pre></div>
+<span class="pl-smi">Levels</span><span class="pl-k">:</span> <span class="pl-smi">yes</span> <span class="pl-smi">no</span>
+
+<span class="pl-c"># SAME TO</span>
+relevel(<span class="pl-smi">x</span>,<span class="pl-v">ref</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>yes<span class="pl-pds">"</span></span>)</pre></div>
+
+<p>Note that the levels are alphabetically ordered by default. We can also specify the levels within the factor call</p>
+
+<div class="highlight highlight-r"><pre><span class="pl-k">&gt;</span> <span class="pl-k">factor</span>(c(<span class="pl-s"><span class="pl-pds">"</span>case<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>case<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>case<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>control<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>control<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>control<span class="pl-pds">"</span></span>), <span class="pl-v">labels</span> <span class="pl-k">=</span> c(<span class="pl-s"><span class="pl-pds">"</span>control<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>case<span class="pl-pds">"</span></span>), <span class="pl-v">ordered</span> <span class="pl-k">=</span> <span class="pl-c1">TRUE</span>)
+[<span class="pl-c1">1</span>] <span class="pl-smi">control</span> <span class="pl-smi">control</span> <span class="pl-smi">control</span> <span class="pl-smi">case</span> <span class="pl-smi">case</span> <span class="pl-smi">case</span>
+<span class="pl-smi">Levels</span><span class="pl-k">:</span> <span class="pl-smi">control</span> <span class="pl-k">&lt;</span> <span class="pl-smi">case</span>
+
+<span class="pl-c"># converted to numeric or character very easily</span>
+<span class="pl-k">&gt;</span> as.character(<span class="pl-smi">x</span>)
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>control<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span>control<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span>control<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span>case<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span>case<span class="pl-pds">"</span></span> <span class="pl-s"><span class="pl-pds">"</span>case<span class="pl-pds">"</span></span>
+<span class="pl-k">&gt;</span> as.numeric(<span class="pl-smi">x</span>)
+[<span class="pl-c1">1</span>] <span class="pl-c1">1</span> <span class="pl-c1">1</span> <span class="pl-c1">1</span> <span class="pl-c1">2</span> <span class="pl-c1">2</span> <span class="pl-c1">2</span></pre></div>
 
 <h2>Vector <em>vs</em> Lists <em>vs</em> Matrices <em>vs</em> Table <em>vs</em> Data Frames</h2>
 
